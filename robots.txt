@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://michally07bange.github.io/cn-m-aiyouxi-com-cn/sitemap.xml

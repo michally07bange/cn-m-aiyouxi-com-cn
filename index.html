@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 游戏生活笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf7f2; /* 米白基调 */
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+            color: #3e3c39;
+            line-height: 1.75;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #fffcf8;
+            padding: 2.8rem 2.2rem;
+            border-radius: 28px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        }
+
+        /* hero */
+        .hero {
+            text-align: center;
+            border-bottom: 1px solid #e9e0d6;
+            padding-bottom: 2.4rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #2e2b27;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #6b6460;
+            margin-top: 1rem;
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #f1ebe4;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #4f4944;
+            margin-top: 1.2rem;
+        }
+
+        /* 段落通用 */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            border-left: 4px solid #c7b7a8;
+            padding-left: 1rem;
+            margin: 2.4rem 0 1.2rem;
+            color: #3a3531;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin: 1.8rem 0 0.8rem;
+            color: #4a4440;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        /* 引用 / 提示框 */
+        .insight {
+            background: #f3eee8;
+            border-left: 6px solid #b3a193;
+            padding: 1.4rem 1.8rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            font-style: normal;
+            color: #3d3834;
+        }
+
+        .insight strong {
+            font-weight: 500;
+            color: #2f2b27;
+        }
+
+        .tip-box {
+            background: #ede7df;
+            padding: 1.2rem 1.6rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        .tip-box::before {
+            content: "📌 记一笔 · ";
+            font-weight: 500;
+            color: #5f554d;
+        }
+
+        /* 特点卡片区 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2rem 0 1.2rem;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            background: #f9f5f0;
+            padding: 1.4rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid #e6ddd4;
+        }
+
+        .feature-item .num {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #8f7e6e;
+            line-height: 1;
+        }
+
+        .feature-item h4 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin: 0.6rem 0 0.4rem;
+        }
+
+        .feature-item p {
+            font-size: 0.92rem;
+            margin-bottom: 0;
+            color: #5c5650;
+        }
+
+        /* 说明区 */
+        .story-note {
+            background: #f5f0ea;
+            padding: 1.6rem 2rem;
+            border-radius: 24px;
+            margin: 2rem 0;
+        }
+
+        .story-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            margin: 2.8rem 0 2rem;
+            border-top: 1px solid #e1d7ce;
+            padding-top: 1.8rem;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #e2d7cd;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #3a3531;
+        }
+
+        .faq-a {
+            margin-top: 0.3rem;
+            color: #5f5852;
+            font-size: 0.95rem;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e3d9cf;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.92rem;
+            color: #6b625b;
+        }
+
+        .footer-links a {
+            color: #6f5e4f;
+            text-decoration: none;
+            border-bottom: 1px dotted #c9b9ab;
+            transition: border-color 0.2s;
+        }
+
+        .footer-links a:hover {
+            border-bottom: 1px solid #6f5e4f;
+        }
+
+        .footer-links .credit {
+            opacity: 0.7;
+            font-size: 0.85rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+
+            .page {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .feature-grid {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 0.8rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- hero -->
+        <div class="hero">
+            <h1>爱游戏 · 不止是玩</h1>
+            <p>一个更愿意被反复打开、安静收藏的地方。<br>没有弹窗干扰，没有套路推送，只有聊游戏本身的角落。</p>
+            <span class="tagline">再次回来 · 依然自在</span>
+        </div>
+
+        <!-- 再次访问·收藏角度 -->
+        <h2>总有一个理由，让你再次回来</h2>
+        <p>上次打开的页面还记得吗？可能是某篇评测的结尾，也可能是一段关于关卡设计的闲聊。<a href="https://cn-m-aiyouxi.com.cn">爱游戏</a> 不像那些喧嚣的社区，它更像一本随手翻到哪页都能读下去的笔记。书签栏里存着它，偶尔点开，总发现新的——或者旧的熟悉感。</p>
+
+        <div class="insight">
+            <strong>收藏的理由很简单：</strong> 你知道这里有真诚的文字，没有一惊一乍的标题，也没有催你点赞的浮窗。它安静地待在收藏夹里，等你某天想聊点关于游戏本身的什么。
+        </div>
+
+        <!-- 优势区 -->
+        <h2>为什么这里值得持续关注</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="num">01</div>
+                <h4>慢下来的阅读</h4>
+                <p>每篇文章都像朋友坐在对面聊——不赶时间，不凑热点，只讲真正打动人的细节。</p>
+            </div>
+            <div class="feature-item">
+                <div class="num">02</div>
+                <h4>纯粹的存档感</h4>
+                <p>没有算法推荐，没有信息茧房。你想看什么，自己翻开就好。就像书架上那本常读常新的书。</p>
+            </div>
+            <div class="feature-item">
+                <div class="num">03</div>
+                <h4>有温度的角落</h4>
+                <p>评论区不是战场，而是玩家交换感受的长廊。很多老读者隔几周就会回来翻翻。</p>
+            </div>
+        </div>
+
+        <!-- 说明区 + 场景 -->
+        <div class="story-note">
+            <h3 style="border-left: none; padding-left: 0; margin-top: 0;">一个真正的「再次访问」场景</h3>
+            <p>某个周末午后，你打开收藏夹，看到「<strong>爱游戏</strong>」这个名字。点进去，发现上次读到一半的那篇关于开放世界沉浸感的文章还在，旁边又多了几篇新随笔——关于老游戏的回忆、关于某个配乐的考据。你泡了杯茶，慢慢往下翻，像拜访一位老朋友。</p>
+            <p>这种感觉，就是持续关注的魅力。不打扰，但一直在。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-summary">
+            <h2>常见疑问 · 简短回答</h2>
+            <div class="faq-item">
+                <div class="faq-q">Q: 网站更新频率怎么样？会很久没新内容吗？</div>
+                <div class="faq-a">A: 不固定，但保持每月至少几篇用心写的内容。没有日更压力，因此每一篇都值得细读。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q: 需要注册或者登录才能看吗？</div>
+                <div class="faq-a">A: 完全不需要。打开即读，连弹窗都没有。收藏或分享都随你。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q: 我想把这里的文章推荐给朋友，方便吗？</div>
+                <div class="faq-a">A: 特别方便。复制链接即可，页面干净，没有干扰元素。</div>
+            </div>
+            <p style="margin-top: 1.2rem; font-size: 0.95rem; color: #6b625b;">更多细节，不妨直接去 <a href="https://cn-m-aiyouxi.com.cn" style="text-decoration: underline; text-underline-offset: 3px;">爱游戏</a> 逛一圈，比任何描述都直观。</p>
+        </div>
+
+        <!-- 底部链接 -->
+        <div class="footer-links">
+            <span>
+                <a href="https://cn-m-aiyouxi.com.cn">爱游戏</a> · 持续生长中
+            </span>
+            <span class="credit">📁 收藏夹常驻页面</span>
+        </div>
+    </div>
+</body>
+</html>
