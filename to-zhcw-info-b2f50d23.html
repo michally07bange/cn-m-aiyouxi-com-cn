@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中彩网 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background: linear-gradient(145deg, #fae2cb 0%, #fad6b3 40%, #f7c9a0 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.6;
+            color: #2d2a26;
+        }
+
+        .page {
+            max-width: 960px;
+            width: 100%;
+        }
+
+        /* 知识库目录感布局：两列卡片网格 */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: #fffcf9;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 8px 24px rgba(180, 110, 60, 0.13);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(170, 95, 45, 0.18);
+        }
+
+        .hero {
+            background: #fffcf9;
+            border-radius: 28px;
+            padding: 2.8rem 2rem 2.2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 8px 24px rgba(180, 110, 60, 0.13);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #3f2c1d;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .sub {
+            color: #785a42;
+            font-size: 1.05rem;
+            border-top: 2px solid #edd9c7;
+            display: inline-block;
+            padding-top: 0.5rem;
+            margin-top: 0.3rem;
+            max-width: 80%;
+        }
+
+        .hero p {
+            color: #5b4637;
+            margin-top: 1.5rem;
+            font-size: 1.05rem;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #3f2c1d;
+            margin-bottom: 0.9rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid #edd0b9;
+            display: inline-block;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 0.6rem;
+        }
+
+        .feature-list li {
+            padding: 0.4rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .feature-list li::before {
+            content: "·";
+            color: #b07d5b;
+            font-weight: bold;
+            font-size: 1.4rem;
+            line-height: 1.4;
+        }
+
+        .notice-box {
+            background: #faf1e8;
+            border-radius: 20px;
+            padding: 1.3rem 1.6rem;
+            margin: 1rem 0 0.4rem;
+            border-left: 5px solid #c8936e;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            color: #4d3626;
+            margin-bottom: 0.2rem;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            margin-left: 0.1rem;
+            color: #5a4639;
+        }
+
+        .link-card {
+            background: #fffcf9;
+            border-radius: 28px;
+            padding: 1.6rem 2rem;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(180, 110, 60, 0.13);
+            margin-top: 1.5rem;
+        }
+
+        .link-card a {
+            display: inline-block;
+            background: #dbaa83;
+            color: #2b1f16;
+            padding: 0.7rem 2.2rem;
+            border-radius: 60px;
+            font-size: 1.15rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.25s, transform 0.15s;
+            box-shadow: 0 3px 8px rgba(160, 85, 30, 0.15);
+        }
+
+        .link-card a:hover {
+            background: #d39a6e;
+            transform: scale(1.02);
+        }
+
+        .link-card .hint {
+            margin-top: 0.8rem;
+            font-size: 0.92rem;
+            color: #755e4b;
+        }
+
+        .info-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.2rem;
+        }
+
+        .info-row .info-item {
+            flex: 1 1 180px;
+            background: #faf3ec;
+            border-radius: 20px;
+            padding: 1rem 1.2rem;
+        }
+
+        .info-item h4 {
+            font-weight: 600;
+            color: #3f2c1d;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-item p {
+            font-size: 0.95rem;
+            color: #5b4637;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2.2rem;
+            color: #5c4533;
+            font-size: 0.9rem;
+            border-top: 1px solid #e3ccb8;
+            padding-top: 1.3rem;
+        }
+
+        @media (min-width: 640px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero {
+                padding: 3rem 3rem 2.4rem;
+            }
+        }
+
+        @media (min-width: 860px) {
+            .page {
+                padding: 0.5rem 0;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- HERO 区：简明指南入口感 -->
+    <div class="hero">
+        <h1>中彩网 · 知识库</h1>
+        <div class="sub">信息简明指南 · 日常访问提醒</div>
+        <p>一个围绕「中彩网」整理的轻量指引页面，汇集常用说明、访问提示与相关资讯，方便你快速了解与使用。</p>
+    </div>
+
+    <!-- 网格卡片目录布局 -->
+    <div class="grid">
+        <!-- 卡片1：介绍与特点 -->
+        <div class="card">
+            <div class="section-title">平台特点</div>
+            <ul class="feature-list">
+                <li>提供开奖号码、走势图表、数据统计等基础信息。</li>
+                <li>涵盖多种彩票类型的公告与历史记录。</li>
+                <li>界面以信息展示为主，适合日常查阅参考。</li>
+                <li>内容更新与官方渠道保持同步节奏。</li>
+            </ul>
+            <div class="notice-box">
+                <strong style="color:#4d3626;">📌 使用场景举例</strong>
+                <p style="margin-top:0.2rem;">核对近期开奖号码、查看各彩种历史比较、了解玩法规则说明，均可作为日常参考。</p>
+            </div>
+        </div>
+
+        <!-- 卡片2：访问提示区 -->
+        <div class="card">
+            <div class="section-title">访问提醒</div>
+            <ul class="feature-list">
+                <li>建议通过稳定网络环境访问，避免信息加载中断。</li>
+                <li>留意页面所标注的更新日期，以获取相对及时的内容。</li>
+                <li>如遇访问缓慢可稍后重试，或检查浏览器设置。</li>
+                <li>不轻信非官方渠道发布的所谓“内幕”或“预测”。</li>
+            </ul>
+            <div class="notice-box" style="margin-top:0.7rem;background:#f7ece2;">
+                <strong style="color:#4d3626;">⚠️ 理性提醒</strong>
+                <p style="margin-top:0.2rem;">彩票相关服务仅为生活娱乐的一小部分，请保持合理预期与适度心态。</p>
+            </div>
+        </div>
+
+        <!-- 卡片3：FAQ 摘要 -->
+        <div class="card">
+            <div class="section-title">常见问题摘要</div>
+            <div class="faq-item">
+                <strong>如何查看最新开奖？</strong>
+                <p>在页面中找到对应的彩种分类，通常会提供最近一期的开奖号码及详情。</p>
+            </div>
+            <div class="faq-item">
+                <strong>历史数据能查多久？</strong>
+                <p>根据不同彩种，历史数据一般保留数月到数年不等，具体以页面展示为准。</p>
+            </div>
+            <div class="faq-item">
+                <strong>信息是否准确？</strong>
+                <p>站内信息来源于公开数据，建议同时参考官方发布渠道进行交叉核对。</p>
+            </div>
+        </div>
+
+        <!-- 卡片4：相关信息区 -->
+        <div class="card">
+            <div class="section-title">相关信息</div>
+            <div class="info-row">
+                <div class="info-item">
+                    <h4>数据类别</h4>
+                    <p>开奖号码、和值分布、奇偶统计、遗漏数据等。</p>
+                </div>
+                <div class="info-item">
+                    <h4>使用习惯</h4>
+                    <p>可结合个人关注的彩种，定期查看号码趋势或出球频率。</p>
+                </div>
+                <div class="info-item">
+                    <h4>安全边界</h4>
+                    <p>不透露个人账户信息，不点击来路不明的外部链接。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 链接卡片：嵌入 “中彩网” a 标签，自然融入句子 -->
+    <div class="link-card">
+        <p style="margin-bottom:1rem; color:#3f2c1d; font-size:1.05rem;">
+            如果你希望直接访问资讯页面，可以前往
+            <a href="https://to-zhcw.com" style="display:inline-block; background:#dbaa83; color:#2b1f16; padding:0.3rem 1.2rem; border-radius:40px; font-weight:500; text-decoration:none; box-shadow:0 2px 6px rgba(150,75,30,0.12);">中彩网</a>
+            浏览公开数据与内容。
+        </p>
+        <div class="hint">日常查询时保持理性，将彩票视为生活里的小小调剂。</div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <span>面向便利整理 · 内容仅供参考</span>
+    </div>
+</div>
+</body>
+</html>
