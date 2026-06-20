@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>Pages-Baijiale · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f0eb;
+            font-family: 'Segoe UI', 'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #3d3a36;
+            line-height: 1.65;
+            padding: 2rem 1rem 3rem;
+        }
+
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #fdfaf7;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+            padding: 2rem 2.5rem 3rem;
+        }
+
+        /* 导航 */
+        .top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            align-items: center;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #ece5dd;
+            margin-bottom: 2.2rem;
+        }
+
+        .site-name {
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #5a4e44;
+        }
+
+        .site-name span {
+            background: #eae1d6;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            font-weight: 400;
+            font-size: 0.9rem;
+            margin-left: 0.3rem;
+            color: #4d3f34;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            color: #6f6255;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 0.2rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #b7a692;
+        }
+
+        /* hero */
+        .hero {
+            background: #efe9e0;
+            border-radius: 40px;
+            padding: 2.4rem 2.2rem 2.2rem;
+            margin-bottom: 2.8rem;
+            box-shadow: inset 0 1px 4px rgba(255, 248, 240, 0.6), 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 450;
+            letter-spacing: -0.3px;
+            color: #3b322b;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            color: #5f554b;
+        }
+
+        .hero a {
+            color: #3b322b;
+            text-decoration: underline wavy #c6b5a2 1.5px;
+            text-underline-offset: 3px;
+            transition: text-decoration-color 0.2s;
+        }
+
+        .hero a:hover {
+            text-decoration-color: #8a7a69;
+        }
+
+        /* 文章通用 */
+        .section {
+            margin-bottom: 2.8rem;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            color: #3d322a;
+            margin-bottom: 1rem;
+            border-left: 4px solid #d2c2b0;
+            padding-left: 1rem;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            color: #4d443c;
+        }
+
+        .section a {
+            color: #6b5c4d;
+            text-decoration: underline dotted 1px #b8a694;
+            text-underline-offset: 3px;
+            transition: color 0.2s;
+        }
+
+        .section a:hover {
+            color: #3d322a;
+            text-decoration: underline solid #8a7a69;
+        }
+
+        /* 三个场景卡片 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 1.4rem 0 2rem;
+        }
+
+        .scene-card {
+            background: #f9f4ee;
+            padding: 1.6rem 1.4rem 1.8rem;
+            border-radius: 28px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+            transition: transform 0.15s ease, box-shadow 0.2s;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.04);
+        }
+
+        .scene-card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #4a3f36;
+            margin-bottom: 0.4rem;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #5e554b;
+            margin: 0.4rem 0 0;
+        }
+
+        .scene-card .emoji-marker {
+            display: inline-block;
+            font-size: 1.3rem;
+            margin-right: 6px;
+            opacity: 0.8;
+        }
+
+        /* 引用/提示块 */
+        .inset-note {
+            background: #eee7df;
+            border-left: 6px solid #cbb9a6;
+            padding: 1.2rem 1.6rem;
+            border-radius: 24px;
+            margin: 1.5rem 0;
+            color: #3f3831;
+            font-size: 0.97rem;
+        }
+
+        .inset-note strong {
+            font-weight: 500;
+            color: #2e2721;
+        }
+
+        .faq-mini {
+            margin-top: 1.5rem;
+            border-top: 1px solid #eae1d7;
+            padding-top: 1.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #3f342c;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item .a {
+            padding-left: 0.8rem;
+            color: #5f554a;
+            border-left: 2px solid #dacfc2;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e3dad0;
+            margin: 2rem 0;
+        }
+
+        .footer-note {
+            font-size: 0.9rem;
+            color: #7f7265;
+            text-align: center;
+            margin-top: 2.5rem;
+            border-top: 1px solid #e7ded5;
+            padding-top: 1.5rem;
+        }
+
+        .footer-note a {
+            color: #6a5c4e;
+            text-decoration: underline 1px dotted #b7a48f;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+            .page {
+                padding: 1.5rem 1.2rem 2rem;
+                border-radius: 20px;
+            }
+            .hero {
+                padding: 1.8rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .top-nav {
+                flex-direction: column;
+                align-items: start;
+                gap: 0.6rem;
+            }
+            .nav-links {
+                margin-left: 0;
+                gap: 1.2rem;
+            }
+            .scene-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .hero p {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 导航区 -->
+    <nav class="top-nav">
+        <div class="site-name">
+            pages-baijiale<span>指南</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">站点介绍</a>
+            <a href="#">场景说明</a>
+            <a href="#">常见问题</a>
+        </div>
+    </nav>
+
+    <!-- hero 区域：嵌入链接 -->
+    <div class="hero">
+        <h1>关于这个站点</h1>
+        <p>
+            <a href="https://pages-baijiale.com">百家乐</a> 是一个以信息梳理与内容参考为主的页面集合。
+            不追求繁复的界面，更希望用平实的文字和清晰的板块，帮助访客快速理解规则、背景与常见疑问。
+        </p>
+    </div>
+
+    <!-- 介绍 + 可信说明 -->
+    <div class="section">
+        <h2>站点与可信说明</h2>
+        <p>
+            本站的内容均基于公开资料与经验整理而成，来源于对规则、文化背景以及常见场景的梳理。
+            我们不进行任何结果预测或误导性暗示，所呈现的一切仅作为知识参考与信息存档。
+            如果您希望了解更全面的规则细节，<a href="https://pages-baijiale.com">百家乐</a> 主站提供了结构化的文档合集。
+        </p>
+        <p>
+            在整理过程中，我们始终遵循“不夸大、不诱导”的原则，所有表述均克制在客观描述与常见问答的范围内。
+            您可以将这里视为一个安静的资料角，而非宣传入口。
+        </p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="section">
+        <h2>三种常见场景</h2>
+        <div class="scene-grid">
+            <div class="scene-card">
+                <h3><span class="emoji-marker">📘</span>初识规则</h3>
+                <p>想要快速了解基本玩法、术语和胜负判定方式。这里提供了分步骤的说明，适合第一次接触的朋友安静阅读。</p>
+            </div>
+            <div class="scene-card">
+                <h3><span class="emoji-marker">🧩</span>术语对照</h3>
+                <p>闲家、庄家、和局、自然牌……许多称谓在不同地区略有差异。本站整理了常见的叫法对照，帮助您减少混淆。</p>
+            </div>
+            <div class="scene-card">
+                <h3><span class="emoji-marker">📚</span>文化背景</h3>
+                <p>从起源到演变，梳理了一些流传较广的故事与版本差异。不追求猎奇，只希望让背景知识更立体一些。</p>
+            </div>
+        </div>
+        <p style="margin-top: 0.5rem; font-size: 0.95rem; color: #6b6055;">
+            以上三个方向均可在主站找到对应的内容页面，每个板块都保持独立和克制的叙述。
+        </p>
+    </div>
+
+    <!-- 提示框 / 引用块 -->
+    <div class="inset-note">
+        <strong>💡 阅读提示</strong><br>
+        本站所有内容仅供一般性参考，不构成任何形式的建议或引导。部分表述源自经验分享与规则汇编，请结合自身判断使用。
+        若您发现内容有误或存在过时信息，欢迎通过站内渠道指正。
+    </div>
+
+    <!-- 常见说明 / 类似 FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2 style="border-left-color: #d4c2b0; margin-bottom: 0.8rem;">常见说明摘要</h2>
+        <div class="faq-item">
+            <span class="q">Q：网站是否频繁更新？</span>
+            <div class="a">我们保持适度的更新节奏，主要修正错误、补充常见疑问和优化阅读结构，不会为了更新而更新。</div>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q：内容来源可靠吗？</span>
+            <div class="a">资料主要来自公开的规则文档、历史档案以及经验者的核对。每一段都经过交叉比对，但仍旧建议您以官方规则为最终依据。</div>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q：是否有付费或隐藏内容？</span>
+            <div class="a">这个站点完全免费开放，没有会员墙、付费板块或诱导跳转。所有页面均可以直接浏览。</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- 尾部再次自然嵌入链接 -->
+    <div class="footer-note">
+        若您想深入了解或查阅完整文档，可直接访问 <a href="https://pages-baijiale.com">百家乐</a> 主站。
+        <span style="display: block; margin-top: 0.4rem; color: #9a8f82;">—— 安静阅读，自有收获 ——</span>
+    </div>
+</div>
+</body>
+</html>
